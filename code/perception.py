@@ -1,5 +1,9 @@
 import numpy as np
+import matplotlib.image as mpimg
+import matplotlib.pyplot as plt
+#%matplotlib inline
 import cv2
+import glob
 
 # Identify pixels above the threshold
 # Threshold of RGB > 160 does a nice job of identifying ground pixels only
@@ -14,6 +18,7 @@ def color_thresh(img, rgb_thresh=(160, 160, 160)):
                 & (img[:,:,2] > rgb_thresh[2])
     # Index the array of zeros with the boolean array and set to 1
     color_select[above_thresh] = 1
+
     # Return the binary image
     return color_select
 
@@ -42,9 +47,11 @@ def to_polar_coords(x_pixel, y_pixel):
 def rotate_pix(xpix, ypix, yaw):
     # TODO:
     # Convert yaw to radians
-    # Apply a rotation
-    xpix_rotated = 0
-    ypix_rotated = 0
+    yaw_rad = yaw * np.pi / 180
+    # Rotation here
+    xpix_rotated = xpix * np.cos(yaw_rad) - ypix * np.sin(yaw_rad)
+    ypix_rotated = xpix * np.sin(yaw_rad) + ypix * np.cos(yaw_rad)
+
     # Return the result  
     return xpix_rotated, ypix_rotated
 
@@ -52,6 +59,12 @@ def rotate_pix(xpix, ypix, yaw):
 def translate_pix(xpix_rot, ypix_rot, xpos, ypos, scale): 
     # TODO:
     # Apply a scaling and a translation
+    scale = 10
+    x_world = np.int_(xpos + (xpix_rot / scale))
+    y_world = np.int_(ypos + (ypix_rot / scale))
+    world_size = 200
+    x_pix_world = np.clip(x_world, 0, world_size - 1)
+    y_pix_world = np.clip(y_world, 0, world_size - 1)
     xpix_translated = 0
     ypix_translated = 0
     # Return the result  
@@ -84,6 +97,12 @@ def perception_step(Rover):
     # Perform perception steps to update Rover()
     # TODO: 
     # NOTE: camera image is coming to you in Rover.img
+    imagepath = "C:\\Users\\Trevor\\Documents\\GitHub\\RoboND-Rover-Project\\imgfolder\\*"
+    image_list = glob.glob(imagepath) # Grab Image
+    
+    index = 1
+    image = mpimg.imread(image_list[index])
+    rover_cords(image)
     # 1) Define source and destination points for perspective transform
     # 2) Apply perspective transform
     # 3) Apply color threshold to identify navigable terrain/obstacles/rock samples
