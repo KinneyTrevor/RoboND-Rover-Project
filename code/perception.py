@@ -25,7 +25,8 @@ def color_thresh(img, rgb_thresh=(160, 160, 160)):
 # Define a function to convert to rover-centric coordinates
 def rover_coords(binary_img):
     # Identify nonzero pixels
-    ypos, xpos = binary_img.nonzero()
+    image = mpimg.imread(binary_img)
+    ypos, xpos = image.nonzero()
     # Calculate pixel positions with reference to the rover position being at the 
     # center bottom of the image.  
     x_pixel = np.absolute(ypos - binary_img.shape[0]).astype(np.float)
@@ -97,21 +98,32 @@ def perception_step(Rover):
     # Perform perception steps to update Rover()
     # TODO: 
     # NOTE: camera image is coming to you in Rover.img
-    imagepath = "C:\\Users\\Trevor\\Documents\\GitHub\\RoboND-Rover-Project\\imgfolder\\*"
-    image_list = glob.glob(imagepath) # Grab Image
-    
-    index = 1
-    image = mpimg.imread(image_list[index])
-    rover_cords(image)
+    #imagepath = "C:\\Users\\Trevor\\Documents\\GitHub\\RoboND-Rover-Project\\imgfolder\\*"
+    #imagepath = "C:\\Users\\The Commander\\Documents\\GitHub\\RoboND-Rover-Project\\imgfolder\\IMG\\*"
+    #image_list = glob.glob(imagepath) # Grab Image
+    img = Rover.img
     # 1) Define source and destination points for perspective transform
+    dst_size = 5
+    bottom_offset = 6
+    source = np.float32([[14,140],[301,140],[200,96],[118,96]])
+    destination = np.float32([[img.shape[1] / 2 - dst_size, img.shape[0] - bottom_offset],
+                              [img.shape[1] /2 + dst_size, img.shape[0] - bottom_offset],
+                              [img.shape[1] / 2 - dst_size, img.shape[0] - 2 * dst_size - bottom_offset],
+                              [img.shape[1] / 2 + dst_size, img.shape[0] - 2 * dst_size - bottom_offset],
+                             ])
     # 2) Apply perspective transform
+    warped = perspect_transform(img,source, destination)
     # 3) Apply color threshold to identify navigable terrain/obstacles/rock samples
+    threshed_terrain = color_thresh(warped)
+    threshed_obstacles = color_thresh(warped, (100, 100, 100), 'obstacles')
+    threshed_rocks = color_thresh(warped, (200, 200, 20), 'rocks')
     # 4) Update Rover.vision_image (this will be displayed on left side of screen)
-        # Example: Rover.vision_image[:,:,0] = obstacle color-thresholded binary image
-        #          Rover.vision_image[:,:,1] = rock_sample color-thresholded binary image
-        #          Rover.vision_image[:,:,2] = navigable terrain color-thresholded binary image
+        Rover.vision_image[:,:,0] = threshed_obstacles       
+        Rover.vision_image[:,:,1] = threshed_rocks
+        Rover.vision_image[:,:,2] = threshed_terrain*255
 
     # 5) Convert map image pixel values to rover-centric coords
+    #TODO START HERE
     # 6) Convert rover-centric pixel values to world coordinates
     # 7) Update Rover worldmap (to be displayed on right side of screen)
         # Example: Rover.worldmap[obstacle_y_world, obstacle_x_world, 0] += 1
