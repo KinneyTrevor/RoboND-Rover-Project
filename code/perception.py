@@ -25,8 +25,8 @@ def color_thresh(img, rgb_thresh=(160, 160, 160)):
 # Define a function to convert to rover-centric coordinates
 def rover_coords(binary_img):
     # Identify nonzero pixels
-    image = mpimg.imread(binary_img)
-    ypos, xpos = image.nonzero()
+    #image = mpimg.imread(binary_img)
+    ypos, xpos = binary_img.nonzero()
     # Calculate pixel positions with reference to the rover position being at the 
     # center bottom of the image.  
     x_pixel = np.absolute(ypos - binary_img.shape[0]).astype(np.float)
@@ -46,7 +46,7 @@ def to_polar_coords(x_pixel, y_pixel):
 
 # Define a function to apply a rotation to pixel positions
 def rotate_pix(xpix, ypix, yaw):
-    # TODO:
+    
     # Convert yaw to radians
     yaw_rad = yaw * np.pi / 180
     # Rotation here
@@ -58,7 +58,7 @@ def rotate_pix(xpix, ypix, yaw):
 
 # Define a function to perform a translation
 def translate_pix(xpix_rot, ypix_rot, xpos, ypos, scale): 
-    # TODO:
+    
     # Apply a scaling and a translation
     scale = 10
     x_world = np.int_(xpos + (xpix_rot / scale))
@@ -115,23 +115,35 @@ def perception_step(Rover):
     warped = perspect_transform(img,source, destination)
     # 3) Apply color threshold to identify navigable terrain/obstacles/rock samples
     threshed_terrain = color_thresh(warped)
-    threshed_obstacles = color_thresh(warped, (100, 100, 100), 'obstacles')
-    threshed_rocks = color_thresh(warped, (200, 200, 20), 'rocks')
+    threshed_obstacles = color_thresh(warped, (100, 100, 100))
+    threshed_rocks = color_thresh(warped, (200, 200, 20))
     # 4) Update Rover.vision_image (this will be displayed on left side of screen)
-        Rover.vision_image[:,:,0] = threshed_obstacles       
-        Rover.vision_image[:,:,1] = threshed_rocks
-        Rover.vision_image[:,:,2] = threshed_terrain*255
+    Rover.vision_image[:,:,0] = threshed_obstacles       
+    Rover.vision_image[:,:,1] = threshed_rocks
+    Rover.vision_image[:,:,2] = threshed_terrain*255
 
     # 5) Convert map image pixel values to rover-centric coords
-    #TODO START HERE
+    ter_x, ter_y = rover_coords(threshed_terrain)
+    obst_x, obst_y = rover_coords(threshed_obstacles)
+    rock_x,rock_y = rover_coords(threshed_rocks)
     # 6) Convert rover-centric pixel values to world coordinates
+    (xpos, ypos) = Rover.pos
+    yaw = Rover.yaw
+    world = Rover.worldmap.shape[0]
+    scale = dst_size * 2
+    ter_world_x, ter_world_y = pix_to_world(ter_x, ter_y, xpos, ypos, yaw, world, scale)
+    obst_world_x, obst_world_y = pix_to_world(obst_x, obst_y, xpos, ypos, yaw, world, scale)
+    rock_world_x, rock_world_y = pix_to_world(rock_x, rock_y, xpos, ypos, yaw, world, scale)
     # 7) Update Rover worldmap (to be displayed on right side of screen)
-        # Example: Rover.worldmap[obstacle_y_world, obstacle_x_world, 0] += 1
-        #          Rover.worldmap[rock_y_world, rock_x_world, 1] += 1
-        #          Rover.worldmap[navigable_y_world, navigable_x_world, 2] += 1
+    Rover.worldmap[obst_world_y, obst_world_x, 0] += 1
+    Rover.worldmap[rock_world_y, rock_world_x, 1] += 1
+    Rover.worldmap[ter_world_y, ter_world_x, 2] += 1
 
     # 8) Convert rover-centric pixel positions to polar coordinates
     # Update Rover pixel distances and angles
+    dist, angles = to_polar_coords(ter_x, ter_y)
+    Rover.nav_dists = dist
+    Rover.nav_angles = angles
         # Rover.nav_dists = rover_centric_pixel_distances
         # Rover.nav_angles = rover_centric_angles
     
@@ -139,3 +151,54 @@ def perception_step(Rover):
     
     
     return Rover
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
