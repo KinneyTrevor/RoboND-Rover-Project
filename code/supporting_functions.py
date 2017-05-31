@@ -1,22 +1,3 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Marketplace
-Gist
- @KinneyTrevor
- Sign out
- Watch 15
-  Star 14
-  Fork 158 udacity/RoboND-Rover-Project
- Code  Issues 0  Pull requests 2  Projects 0  Wiki Insights 
-Branch: master Find file Copy pathRoboND-Rover-Project/code/supporting_functions.py
-a15425b  4 hours ago
-@ryan-keenan ryan-keenan make various updates to do better rock pickup and counting
-1 contributor
-RawBlameHistory     
-152 lines (136 sloc)  7.16 KB
 import numpy as np
 import cv2
 from PIL import Image
@@ -47,7 +28,7 @@ def update_rover(Rover, data):
             if np.isfinite(tot_time):
                   Rover.total_time = tot_time
       # Print out the fields in the telemetry data dictionary
-      print(data.keys())
+      #print(data.keys())
       # The current speed of the rover in m/s
       Rover.vel = convert_to_float(data["speed"])
       # The current position of the rover
@@ -69,11 +50,11 @@ def update_rover(Rover, data):
       # Update number of rocks found
       Rover.samples_found = Rover.samples_to_find - np.int(data["sample_count"])
 
-      print('speed =',Rover.vel, 'position =', Rover.pos, 'throttle =', 
-      Rover.throttle, 'steer_angle =', Rover.steer, 'near_sample:', Rover.near_sample, 
-      'picking_up:', data["picking_up"], 'sending pickup:', Rover.send_pickup, 
-      'total time:', Rover.total_time, 'samples remaining:', data["sample_count"], 
-      'samples found:', Rover.samples_found)
+      # print('speed =',Rover.vel, 'position =', Rover.pos, 'throttle =', 
+      # Rover.throttle, 'steer_angle =', Rover.steer, 'near_sample:', Rover.near_sample, 
+      # 'picking_up:', data["picking_up"], 'sending pickup:', Rover.send_pickup, 
+      # 'total time:', Rover.total_time, 'samples remaining:', data["sample_count"], 
+      # 'samples found:', Rover.samples_found)
       # Get the current image from the center camera of the rover
       imgString = data["image"]
       image = Image.open(BytesIO(base64.b64decode(imgString)))
@@ -165,8 +146,3 @@ def create_output_images(Rover):
       encoded_string2 = base64.b64encode(buff.getvalue()).decode("utf-8")
 
       return encoded_string1, encoded_string2
-
-
-
-Contact GitHub API Training Shop Blog About
-© 2017 GitHub, Inc. Terms Privacy Security Status Help
