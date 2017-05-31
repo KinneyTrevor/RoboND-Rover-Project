@@ -1,5 +1,11 @@
 import numpy as np
 
+# TODO
+# Measure how long at a location and time out if stuck, start to turn around
+# log the lcoation of rocks when you find thenm
+# log the location of home when you start
+# idk
+
 
 # This is where you can build a decision tree for determining throttle, brake and steer 
 # commands based on the output of the perception_step() function
