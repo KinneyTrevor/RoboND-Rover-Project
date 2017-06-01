@@ -1,12 +1,16 @@
 import numpy as np
-
+from datetime import datetime
 # TODO
 # Measure how long at a location and time out if stuck, start to turn around
 # log the lcoation of rocks when you find thenm
 # log the location of home when you start
 # idk
 
-
+def check_stuck(start_time, current_time,timeout_length):
+    timeout=False;
+    if (current_time - start_time > timeout_length):
+        timeout = True;
+    return timeout 
 # This is where you can build a decision tree for determining throttle, brake and steer 
 # commands based on the output of the perception_step() function
 def decision_step(Rover):
@@ -39,11 +43,17 @@ def decision_step(Rover):
                     # Set brake to stored brake value
                     Rover.brake = Rover.brake_set
                     Rover.steer = 0
+                    stuck_start = datetime.now().minute
                     Rover.mode = 'stop'
+                    # If we've been in stop mode for longer than one minute, turn 
+                    print("Checking if stuck")
+                    if(check_stuck(stuck_start,datetime.now().minute,1)):
+                        Rover.steer = -15                    
 
         # If we're already in "stop" mode then make different decisions
         elif Rover.mode == 'stop':
-            # If we're in stop mode but still moving keep braking
+
+            # If we're in stop mode but still moving keep braking   
             if Rover.vel > 0.2:
                 Rover.throttle = 0
                 Rover.brake = Rover.brake_set

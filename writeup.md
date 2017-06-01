@@ -55,13 +55,14 @@ And another!
 	I applied my values that I found worked for rocks, obstacles, and navigable terrain from the notebook to this same process. The extra step I had to do here was output the results of these thresholded arrays to the output video feed on the Rover. This was done by assigning the Rover.vision_image to the appropriate thresholded images. 
 	From there I had to convert the image pixel values to coordinates that my rover could understand. I did this just by calling the rover_coords function provided. From here all that was left was to change these rover coordinates to world coordinates. All you need to know for this is how big you want your world map to be as well as an appropirate scale to go from rover to world values. I chose 10 and 200 respectively. 
 	The last few steps here were to use my pix_to_world function which was just a combination of the rotate and translate functions for ease of use. Finally we update the world map with these array/image values and let the rover know of the new angle and distance values. 
+	I added a check_stuck function in decision.py that helps me to know if I'm stuck on a rock, it's a bit sloppy but it will trigger if the rover is in stop mode for longer than a minute and start a rotation if it is. 
 
 #### 2. Launching in autonomous mode your rover can navigate and map autonomously.  Explain your results and how you might improve them in your writeup.  
 
 **Note: Resolution: 1920x1200 and FPS was anywhere from 30-50 but it averaged 45 as far as I can see**
 
 Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
-So in terms of what is broken there are a few things, one my Rover gets stuck on rocks occasionally, I would add some sort of timeout function that tests how long I"m at a specific location and would trigger a 180 degree turn if I were near an x/y rover position for longer than like 30 seconds. Past that my fidelity wasn't super great, I think this could have been improved by both better "wall crawling" as well as 
+So in terms of what is broken there are a few things, my Rover gets stuck on rocks occasionally, I added a timeout function that tests how long the rover is in stop mode and if it's stopped for more than a minute it will trigger a rotation. The way I went about this was kind of quick and dirty, not super ggreat as you can be stuck but not in stop mode. What I woudl do to expand on this if I had more time is also add something that checks values for x and y pos and if they are within a certain range for too long I'd rotate 180 degrees. This would account for scenarios when I'm stuck on a rock but not actually in "stop" mode . Past that my fidelity wasn't super great, I think this could have been improved by both better "wall crawling" as well as 
 accounting for the fact that perspective_transform will break if roll or pitch is a higher value. I'd probably add some kind of safety there to make it so it only mapped for reasonable roll/pitch values.  
 
 
