@@ -141,8 +141,9 @@ def perception_step(Rover):
     threshed_rocks = color_thresh(warped, rgb_rock_min, rgb_rock_max)
     # 4) Update Rover.vision_image (this will be displayed on left side of screen)
     Rover.vision_image[:,:,0] = warped[:,:,0]
-    Rover.vision_image[:,:,2] = threshed_obstacles       
     Rover.vision_image[:,:,1] = threshed_rocks
+    Rover.vision_image[:,:,2] = threshed_obstacles       
+    
 
 
     # 5) Convert map image pixel values to rover-centric coords
