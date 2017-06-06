@@ -5,11 +5,16 @@ from datetime import datetime
 # log the lcoation of rocks when you find thenm
 # log the location of home when you start
 # idk
+def check_notmoving(x,array):
+    new_array = np.append(array,x)
+    print(new_array)
+        
+
 
 def check_stuck(start_time, current_time,timeout_length):
     timeout=False;
     if (current_time - start_time > timeout_length):
-        timeout = True;
+        timeout = True
     return timeout 
 # This is where you can build a decision tree for determining throttle, brake and steer 
 # commands based on the output of the perception_step() function
@@ -27,6 +32,8 @@ def decision_step(Rover):
             # Check the extent of navigable terrain
             if len(Rover.nav_angles) >= Rover.stop_forward:  
                 # If mode is forward, navigable terrain looks good 
+                array =  Rover.pos[0]
+
                 # and velocity is below max, then throttle 
                 if Rover.vel < Rover.max_vel:
                     # Set throttle value to throttle setting

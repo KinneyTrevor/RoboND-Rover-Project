@@ -1,0 +1,80 @@
+Initialize engine version: 5.6.1f1 (2860b30f0b54)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 970 (ID=0x13c2)
+    Vendor:   NVIDIA
+    VRAM:     4008 MB
+    Driver:   21.21.13.7892
+Begin MonoManager ReloadAssembly
+Platform assembly: E:\Downloads\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading E:\Downloads\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: E:\Downloads\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading E:\Downloads\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: E:\Downloads\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading E:\Downloads\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: E:\Downloads\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading E:\Downloads\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: E:\Downloads\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading E:\Downloads\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: E:\Downloads\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading E:\Downloads\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  1.843 seconds
+Platform assembly: E:\Downloads\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: E:\Downloads\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\System.dll (this message is harmless)
+Platform assembly: E:\Downloads\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\Mono.Security.dll (this message is harmless)
+desktop: 3840x2160 60Hz; virtual: 3840x2160 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 3840x2160 60Hz; virtual: 3840x2160 at 0,0
+<RI> Initialized touch support.
+[Physics.PhysX] ConvexHullBuilder: convex hull has more than 255 polygons!
+ 
+(Filename: C:/buildslave/physx/build/Source/PhysXCooking/src/convex/ConvexHullBuilder.cpp Line: 1479)
+
+[Physics.PhysX] Gu::ConvexMesh::loadConvexHull: convex hull init failed! Try to use the PxConvexFlag::eINFLATE_CONVEX flag. (see PxToolkit::createConvexMeshSafe)
+ 
+(Filename: C:/buildslave/physx/build/Source/PhysXCooking/src/convex/ConvexMeshBuilder.cpp Line: 253)
+
+Failed to create Convex Mesh from source mesh "rock_2". Source mesh is likely have too many smooth surface regions. Please reduce the surface smoothness of the source mesh. Alternatively turn on Inflate Mesh and increase the Skin Width sufficiently for this mesh.
+ 
+(Filename:  Line: 54)
+
+UnloadTime: 1.326116 ms
+switching camera
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Deleting any previous IMG folder and CSV file..
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Starting to record
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Stopping record
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Writing to disk
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Clearing tracks on RearLeft
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Clearing tracks on RearRight
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+bad pickup count: 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Setting up 4 worker threads for Enlighten.
+  Thread -> id: 26b4 -> priority: 1 
+  Thread -> id: 488 -> priority: 1 
+  Thread -> id: 24b8 -> priority: 1 
+  Thread -> id: 2408 -> priority: 1 

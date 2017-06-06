@@ -151,13 +151,6 @@ def perception_step(Rover):
     obst_x, obst_y = rover_coords(threshed_obstacles)
     rock_x, rock_y = rover_coords(threshed_rocks)
     # 6) Convert rover-centric pixel values to world coordinates
-    #(xpos, ypos) = Rover.pos
-    #yaw = Rover.yaw
-    # world = Rover.worldmap.shape[0]
-    # scale = 10
-    # ter_world_x, ter_world_y = pix_to_world(ter_x, ter_y, xpos, ypos, yaw, world, scale)
-    # obst_world_x, obst_world_y = pix_to_world(obst_x, obst_y, xpos, ypos, yaw, world, scale)
-    # rock_world_x, rock_world_y = pix_to_world(rock_x, rock_y, xpos, ypos, yaw, world, scale)
     scale = 10
     world_size = 200
 
