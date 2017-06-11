@@ -7,26 +7,25 @@ Direct3D:
     VRAM:     4008 MB
     Driver:   21.21.13.7892
 Begin MonoManager ReloadAssembly
-Platform assembly: E:\Downloads\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading E:\Downloads\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: E:\Downloads\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
-Loading E:\Downloads\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
-Platform assembly: E:\Downloads\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading E:\Downloads\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: E:\Downloads\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
-Loading E:\Downloads\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
-Platform assembly: E:\Downloads\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading E:\Downloads\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: E:\Downloads\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading E:\Downloads\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-- Completed reload, in  1.843 seconds
-Platform assembly: E:\Downloads\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: E:\Downloads\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\System.dll (this message is harmless)
-Platform assembly: E:\Downloads\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\Mono.Security.dll (this message is harmless)
-desktop: 3840x2160 60Hz; virtual: 3840x2160 at 0,0
+Platform assembly: C:\Users\The Commander\Documents\GitHub\RoboND-Rover-Project\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\The Commander\Documents\GitHub\RoboND-Rover-Project\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\The Commander\Documents\GitHub\RoboND-Rover-Project\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\The Commander\Documents\GitHub\RoboND-Rover-Project\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\The Commander\Documents\GitHub\RoboND-Rover-Project\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\The Commander\Documents\GitHub\RoboND-Rover-Project\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\The Commander\Documents\GitHub\RoboND-Rover-Project\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\The Commander\Documents\GitHub\RoboND-Rover-Project\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\Users\The Commander\Documents\GitHub\RoboND-Rover-Project\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\The Commander\Documents\GitHub\RoboND-Rover-Project\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\The Commander\Documents\GitHub\RoboND-Rover-Project\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\The Commander\Documents\GitHub\RoboND-Rover-Project\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  2.041 seconds
+Platform assembly: C:\Users\The Commander\Documents\GitHub\RoboND-Rover-Project\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\The Commander\Documents\GitHub\RoboND-Rover-Project\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\System.dll (this message is harmless)
+Platform assembly: C:\Users\The Commander\Documents\GitHub\RoboND-Rover-Project\Windows_Roversim (1)\Roversim_x86_64_Data\Managed\Mono.Security.dll (this message is harmless)
+desktop: 3840x2160 60Hz; virtual: 6400x2160 at -2560,0
 <RI> Initializing input.
 <RI> Input initialized.
-desktop: 3840x2160 60Hz; virtual: 3840x2160 at 0,0
 <RI> Initialized touch support.
 [Physics.PhysX] ConvexHullBuilder: convex hull has more than 255 polygons!
  
@@ -40,7 +39,7 @@ Failed to create Convex Mesh from source mesh "rock_2". Source mesh is likely ha
  
 (Filename:  Line: 54)
 
-UnloadTime: 1.326116 ms
+UnloadTime: 1.345645 ms
 switching camera
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
@@ -73,8 +72,14 @@ bad pickup count: 0
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.341214 ms
+
+Unloading 237 unused Assets to reduce memory usage. Loaded Objects now: 2170.
+Total: 1.167412 ms (FindLiveObjects: 0.130684 ms CreateObjectMapping: 0.032379 ms MarkObjects: 0.668592 ms  DeleteObjects: 0.334879 ms)
+
 Setting up 4 worker threads for Enlighten.
-  Thread -> id: 26b4 -> priority: 1 
-  Thread -> id: 488 -> priority: 1 
-  Thread -> id: 24b8 -> priority: 1 
-  Thread -> id: 2408 -> priority: 1 
+  Thread -> id: 2d08 -> priority: 1 
+  Thread -> id: 2e60 -> priority: 1 
+  Thread -> id: 21a0 -> priority: 1 
+  Thread -> id: 2c50 -> priority: 1 
